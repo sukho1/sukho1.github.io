@@ -1,5 +1,11 @@
 :root { --ink:#2b2620; --bg:#faf7f2; --card:#fff; --accent:#8a5a2b; --muted:#8a8377; --line:#e8e1d5; --head-h:58px; }
 * { box-sizing:border-box; }
+:root { color-scheme:light dark; }
+* { scrollbar-width:thin; scrollbar-color:var(--muted) transparent; }
+::-webkit-scrollbar { width:9px; height:9px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:var(--muted); border-radius:5px; }
+::-webkit-scrollbar-thumb:hover { background:var(--accent); }
 html { scroll-behavior:smooth; }
 body { margin:0; background:var(--bg); color:var(--ink);
   font:16.5px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif; }
@@ -31,7 +37,7 @@ body { margin:0; background:var(--bg); color:var(--ink);
 .hits a small { display:block; color:var(--muted); font-size:12px; }
 
 /* ---- layout ---- */
-.layout { display:flex; flex-wrap:nowrap; max-width:1120px; margin:0 auto; gap:22px; padding:0 22px; align-items:flex-start; }
+.layout { display:flex; flex-wrap:nowrap; max-width:1120px; margin:0; gap:22px; padding:0 22px; align-items:flex-start; }
 .sidebar { flex:0 0 236px; width:236px; position:sticky; top:var(--head-h);
   max-height:calc(100vh - var(--head-h) - 20px); overflow-y:auto; padding:14px 4px 30px 0; }
 .sidebar nav { font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif; }
@@ -99,7 +105,7 @@ hr { border:none; border-top:1px solid var(--line); margin:2em 0; }
   display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
 .count { color:var(--muted); font-size:13px; font-weight:400; font-family:"Noto Sans SC",sans-serif; }
 
-footer { max-width:1160px; margin:0 auto; padding:6px 22px 40px; color:var(--muted);
+footer { padding:6px 22px 40px; color:var(--muted);
   font-family:"Noto Sans SC",sans-serif; font-size:13px; }
 footer a { color:var(--muted); }
 
@@ -114,7 +120,7 @@ footer a { color:var(--muted); }
   article { padding:24px 22px 30px; }
 }
 @media (prefers-color-scheme: dark) {
-  :root { --ink:#d8d2c7; --bg:#221f1a; --card:#2c2822; --accent:#c99b62; --muted:#948c7d; --line:#3d3830; }
+  :root { color-scheme:dark; --ink:#d8d2c7; --bg:#221f1a; --card:#2c2822; --accent:#c99b62; --muted:#948c7d; --line:#3d3830; }
   th { background:#332e27; }
   code, pre { background:#332e27; }
   .hits { box-shadow:0 8px 28px rgba(0,0,0,.45); }
