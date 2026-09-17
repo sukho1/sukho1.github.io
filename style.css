@@ -117,7 +117,7 @@ hr { border:none; border-top:1px solid var(--line); margin:2em 0; }
 .intro { margin-top:28px; background:var(--card); border:1px solid var(--line);
   border-radius:12px; padding:24px 28px; }
 .intro p { margin:0; font-size:14.5px; line-height:2; text-align:justify; }
-.intro .ov { font-weight:600; }
+.intro .ov { text-decoration:none; }
 .socials { display:flex; flex-wrap:wrap; gap:10px 18px; margin-top:16px; padding-top:16px;
   border-top:1px dashed var(--line); }
 .socials a, .socials .soc-txt { font-size:13.5px; text-decoration:none; color:var(--muted);
