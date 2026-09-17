@@ -14,7 +14,9 @@
   }
   function giscusTheme(t) {
     var f = document.querySelector('iframe.giscus-frame');
-    if (f) try { f.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app'); } catch (e) {}
+    if (!f) return;
+    var url = (window.GISCUS_THEMES || {})[t] || t;
+    try { f.contentWindow.postMessage({ giscus: { setConfig: { theme: url } } }, 'https://giscus.app'); } catch (e) {}
   }
   function setTheme(t, save) {
     rootEl.classList.toggle('dark', t === 'dark');
@@ -26,8 +28,10 @@
   try { savedTheme = localStorage.getItem('theme'); } catch (e) {}
   if (savedTheme === 'dark' || savedTheme === 'light') {
     setTheme(savedTheme, false);
-    setTimeout(function () { giscusTheme(savedTheme); }, 1600);
   }
+  var initialTheme = (savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : effTheme();
+  giscusTheme(initialTheme);
+  setTimeout(function () { giscusTheme(initialTheme); }, 1800);
   if (themeBtn) themeBtn.addEventListener('click', function () {
     setTheme(effTheme() === 'dark' ? 'light' : 'dark', true);
   });
