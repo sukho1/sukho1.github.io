@@ -12,6 +12,9 @@ body { margin:0; background:var(--bg); color:var(--ink);
   border-radius:8px; font-size:16px; line-height:1; padding:7px 10px; cursor:pointer; }
 .brand { font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
   font-weight:700; font-size:18px; color:var(--accent); text-decoration:none; letter-spacing:.08em; }
+.head-link { color:var(--muted); text-decoration:none; font-size:14px;
+  font-family:"Noto Sans SC",sans-serif; }
+.head-link:hover { color:var(--accent); }
 .searchbox { margin-left:auto; position:relative; }
 .searchbox input { width:240px; padding:8px 14px; font-size:14px; border:1px solid var(--line);
   border-radius:999px; outline:none; background:var(--bg); color:var(--ink);
@@ -49,6 +52,12 @@ body { margin:0; background:var(--bg); color:var(--ink);
 .sidebar li a:hover { color:var(--accent); background:var(--bg); }
 .sidebar li a.current { color:var(--accent); font-weight:600; border-left-color:var(--accent); background:var(--bg); }
 .main { flex:1 1 0; min-width:0; max-width:840px; padding:18px 0 40px; }
+
+/* ---- comments ---- */
+.comments { margin-top:26px; }
+.comments h2 { font-size:19px; margin:0; padding:0; border:none; }
+.comments .c-note { color:var(--muted); font-size:13px; margin:4px 0 8px;
+  font-family:"Noto Sans SC",sans-serif; }
 
 /* ---- article ---- */
 article { background:var(--card); border:1px solid var(--line); border-radius:12px;
