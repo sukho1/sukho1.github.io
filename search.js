@@ -5,6 +5,32 @@
   var btn = document.getElementById('menuBtn');
   var sidebar = document.getElementById('sidebar');
   var prefix = window.SITE_PREFIX || '';
+  var themeBtn = document.getElementById('themeBtn');
+  var rootEl = document.documentElement;
+  function effTheme() {
+    if (rootEl.classList.contains('dark')) return 'dark';
+    if (rootEl.classList.contains('light')) return 'light';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function giscusTheme(t) {
+    var f = document.querySelector('iframe.giscus-frame');
+    if (f) try { f.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app'); } catch (e) {}
+  }
+  function setTheme(t, save) {
+    rootEl.classList.toggle('dark', t === 'dark');
+    rootEl.classList.toggle('light', t === 'light');
+    if (save) { try { localStorage.setItem('theme', t); } catch (e) {} }
+    giscusTheme(t);
+  }
+  var savedTheme = null;
+  try { savedTheme = localStorage.getItem('theme'); } catch (e) {}
+  if (savedTheme === 'dark' || savedTheme === 'light') {
+    setTheme(savedTheme, false);
+    setTimeout(function () { giscusTheme(savedTheme); }, 1600);
+  }
+  if (themeBtn) themeBtn.addEventListener('click', function () {
+    setTheme(effTheme() === 'dark' ? 'light' : 'dark', true);
+  });
   if (btn && sidebar) {
     btn.addEventListener('click', function () { sidebar.classList.toggle('open'); });
   }

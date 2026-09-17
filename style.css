@@ -1,6 +1,6 @@
 :root { --ink:#2b2620; --bg:#faf7f2; --card:#fff; --accent:#8a5a2b; --muted:#8a8377; --line:#e8e1d5; --head-h:58px; }
 * { box-sizing:border-box; }
-:root { color-scheme:light dark; }
+:root { color-scheme:light; }
 * { scrollbar-width:thin; scrollbar-color:var(--muted) transparent; }
 ::-webkit-scrollbar { width:9px; height:9px; }
 ::-webkit-scrollbar-track { background:transparent; }
@@ -21,6 +21,9 @@ input,button,textarea,select { font:inherit; }
   font-weight:700; font-size:18px; color:var(--accent); text-decoration:none; letter-spacing:.08em; }
 .tagline { color:var(--muted); font-size:13px; letter-spacing:.02em;
   font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; white-space:nowrap; }
+.theme-btn { border:1px solid var(--line); background:none; color:var(--muted);
+  border-radius:999px; padding:6px 12px; font-size:13px; cursor:pointer; white-space:nowrap; }
+.theme-btn:hover { color:var(--accent); border-color:var(--accent); }
 .searchbox { margin-left:auto; position:relative; }
 .searchbox input { width:240px; padding:8px 14px; font-size:14px; border:1px solid var(--line);
   border-radius:999px; outline:none; background:var(--bg); color:var(--ink);
@@ -137,9 +140,12 @@ footer.foot a { color:var(--muted); }
   .sidebar.open { transform:none; box-shadow:0 0 40px rgba(0,0,0,.18); }
   article { padding:24px 22px 30px; }
 }
+/* 手动强制暗色（.dark）与系统暗色（媒体查询，排除手动 .light）双通道 */
+:root.dark { color-scheme:dark; --ink:#d8d2c7; --bg:#221f1a; --card:#2c2822; --accent:#c99b62; --muted:#948c7d; --line:#3d3830; }
+:root.dark th, :root.dark code, :root.dark pre { background:#332e27; }
+:root.dark .hits { box-shadow:0 8px 28px rgba(0,0,0,.45); }
 @media (prefers-color-scheme: dark) {
-  :root { color-scheme:dark; --ink:#d8d2c7; --bg:#221f1a; --card:#2c2822; --accent:#c99b62; --muted:#948c7d; --line:#3d3830; }
-  th { background:#332e27; }
-  code, pre { background:#332e27; }
-  .hits { box-shadow:0 8px 28px rgba(0,0,0,.45); }
+  :root:not(.light) { color-scheme:dark; --ink:#d8d2c7; --bg:#221f1a; --card:#2c2822; --accent:#c99b62; --muted:#948c7d; --line:#3d3830; }
+  :root:not(.light) th, :root:not(.light) code, :root:not(.light) pre { background:#332e27; }
+  :root:not(.light) .hits { box-shadow:0 8px 28px rgba(0,0,0,.45); }
 }
