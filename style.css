@@ -18,9 +18,8 @@ body { margin:0; background:var(--bg); color:var(--ink);
   border-radius:8px; font-size:16px; line-height:1; padding:7px 10px; cursor:pointer; }
 .brand { font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
   font-weight:700; font-size:18px; color:var(--accent); text-decoration:none; letter-spacing:.08em; }
-.head-link { color:var(--muted); text-decoration:none; font-size:14px;
-  font-family:"Noto Sans SC",sans-serif; }
-.head-link:hover { color:var(--accent); }
+.tagline { color:var(--muted); font-size:13px; letter-spacing:.02em;
+  font-family:"Noto Sans SC",sans-serif; white-space:nowrap; }
 .searchbox { margin-left:auto; position:relative; }
 .searchbox input { width:240px; padding:8px 14px; font-size:14px; border:1px solid var(--line);
   border-radius:999px; outline:none; background:var(--bg); color:var(--ink);
@@ -57,6 +56,11 @@ body { margin:0; background:var(--bg); color:var(--ink);
   color:var(--muted); text-decoration:none; border-left:2px solid transparent; border-radius:0 8px 8px 0; }
 .sidebar li a:hover { color:var(--accent); background:var(--bg); }
 .sidebar li a.current { color:var(--accent); font-weight:600; border-left-color:var(--accent); background:var(--bg); }
+.gb-link { display:flex; align-items:center; gap:8px; margin:14px 8px 4px; padding:9px 12px;
+  border:1px solid var(--line); border-radius:10px; text-decoration:none; color:var(--ink);
+  font-size:13.5px; font-family:"Noto Sans SC",sans-serif; }
+.gb-link:hover { color:var(--accent); border-color:var(--accent); }
+.gb-link svg { width:15px; height:15px; flex:none; }
 .main { flex:1 1 0; min-width:0; max-width:840px; padding:18px 0 40px; }
 
 /* ---- comments ---- */
@@ -111,6 +115,7 @@ footer a { color:var(--muted); }
 
 @media (max-width: 860px) {
   .menu-btn { display:inline-flex; }
+  .tagline { display:none; }
   .searchbox input { width:150px; }
   .layout { gap:0; }
   .sidebar { position:fixed; z-index:90; left:0; top:var(--head-h); bottom:0; width:280px;
