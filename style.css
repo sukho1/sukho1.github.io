@@ -109,8 +109,10 @@ hr { border:none; border-top:1px solid var(--line); margin:2em 0; }
   padding:12px 14px; text-decoration:none; color:var(--ink); font-size:14px; line-height:1.6;
   transition:border-color .15s; }
 .cards a:hover { border-color:var(--accent); }
-.cards a.excerpt { color:var(--muted); font-size:12.5px; margin-top:4px;
-  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.cards a .t { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  font-weight:600; line-height:1.6; }
+.cards a .excerpt { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  color:var(--muted); font-size:12.5px; line-height:1.7; margin-top:6px; }
 .count { color:var(--muted); font-size:13px; font-weight:400; font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; }
 
 /* ---- about box ---- */
